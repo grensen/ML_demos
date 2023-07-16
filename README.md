@@ -45,11 +45,10 @@
   <img src="https://github.com/grensen/ML_demos/blob/main/figures/gzip.png">
 </p>
 
-[Gzip compression and decompression in C# (Stack Overflow)](https://stackoverflow.com/questions/25134897/gzip-compression-and-decompression-in-c-sharp),
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/gzip.cs),
-[Tweet](https://twitter.com/rasbt/status/1679680423671001090)
-
-[Paper: “Low-Resource” Text Classification: A Parameter-Free Classification Method with Compressors](https://aclanthology.org/2023.findings-acl.426.pdf)
+[Gzip compression and decompression in C#](https://stackoverflow.com/questions/25134897/gzip-compression-and-decompression-in-c-sharp),
+[Tweet](https://twitter.com/rasbt/status/1679680423671001090),
+[Paper](https://aclanthology.org/2023.findings-acl.426.pdf)
 
 ## Expectation Maximization
 
@@ -59,6 +58,16 @@
 
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/expectation_maximization.cs),
 [Expectation Maximization From Scratch Using C#](https://github.com/grensen/ExpectationMaximization)
+
+## Mixture Model Clustering
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/mixture_model_clustering.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/mixture_model_clustering.cs),
+[Mixture Model Clustering Using C#](https://learn.microsoft.com/en-us/archive/msdn-magazine/2019/november/test-run-mixture-model-clustering-using-csharp),
+[James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2019/11/03/mixture-model-clustering-using-c/)
 
 ## Numeric Naive Bayes
 
