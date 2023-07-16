@@ -9,6 +9,15 @@
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/neural_network_benchmark.cs),
 [Neural Network Benchmark](https://github.com/grensen/neural_network_benchmark)
 
+## Evolutionary Optimization Hyperparameter Search
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/evolutionary_optimization.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/evolutionary_optimization.cs),
+[Evolutionary Optimization Using C# James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2023/01/12/evolutionary-optimization-using-c-2/)
+
 ## Tokenizer
 
 <p align="center">
@@ -68,6 +77,16 @@
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/mixture_model_clustering.cs),
 [Mixture Model Clustering Using C#](https://learn.microsoft.com/en-us/archive/msdn-magazine/2019/november/test-run-mixture-model-clustering-using-csharp),
 [James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2019/11/03/mixture-model-clustering-using-c/)
+
+## K-Means++ 
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/mixture_model_clustering.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/k_means++.cs),
+[Data Clustering with K-Means++ Using C#](https://visualstudiomagazine.com/articles/2020/05/06/data-clustering-k-means.aspx),
+[James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2020/05/08/data-clustering-with-k-means-using-c/)
 
 ## Numeric Naive Bayes
 
