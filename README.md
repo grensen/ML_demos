@@ -56,6 +56,7 @@
 <p align="center">
   <img src="https://github.com/grensen/ML_demos/blob/main/figures/expectation_maximization.png">
 </p>
+
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/expectation_maximization.cs),
 [Expectation Maximization From Scratch Using C#](https://github.com/grensen/ExpectationMaximization)
 
@@ -64,6 +65,7 @@
 <p align="center">
   <img src="https://github.com/grensen/ML_demos/blob/main/figures/numeric_naive_bayes.png">
 </p>
+
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/numeric_naive_bayes.cs),
 [How to Do Naive Bayes with Numeric Data Using C#](https://visualstudiomagazine.com/articles/2019/11/12/naive-bayes-csharp),
 [James D. McCaffrey Blog](https://visualstudiomagazine.com/articles/2019/11/12/naive-bayes-csharp)
