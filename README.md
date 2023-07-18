@@ -27,6 +27,15 @@
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/logistic_regression.cs),
 [Logistic Regression using Raw C#](https://jamesmccaffrey.wordpress.com/2023/02/16/logistic-regression-using-raw-c-2/)
 
+## Kernel Ridge Regression
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/kernel_ridge_regression">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/kernel_ridge_regression.cs),
+[Kernel Ridge Regression Using C# OOP Style](https://jamesmccaffrey.wordpress.com/2023/07/17/kernel-ridge-regression-using-c-oop-style/)
+
 ## Tokenizer
 
 <p align="center">
@@ -116,6 +125,17 @@
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/numeric_naive_bayes.cs),
 [How to Do Naive Bayes with Numeric Data Using C#](https://visualstudiomagazine.com/articles/2019/11/12/naive-bayes-csharp),
 [James D. McCaffrey Blog](https://visualstudiomagazine.com/articles/2019/11/12/naive-bayes-csharp)
+
+## Training Neural Networks Using Multi-Swarm Optimization
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/multi_swarm_nn_training.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/multi_swarm_nn_training.cs),
+[Using Multi-Swarm Training on Your Neural Networks](https://visualstudiomagazine.com/articles/2015/02/01/using-multi-swarm-training.aspx),
+[James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2015/02/16/training-neural-networks-using-multi-swarm-optimization/)
+
 
 ## Probability distributions
 <p align="center">
