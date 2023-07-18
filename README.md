@@ -99,7 +99,7 @@
 ## K-Means++ 
 
 <p align="center">
-  <img src="https://github.com/grensen/ML_demos/blob/main/figures/mixture_model_clustering.png">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/k_means++.png">
 </p>
 
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/k_means++.cs),
