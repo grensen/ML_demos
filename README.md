@@ -18,6 +18,15 @@
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/evolutionary_optimization.cs),
 [Evolutionary Optimization Using C# James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2023/01/12/evolutionary-optimization-using-c-2/)
 
+## Logistic Regression
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/logistic_regression.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/logistic_regression.cs),
+[Logistic Regression using Raw C#](https://jamesmccaffrey.wordpress.com/2023/02/16/logistic-regression-using-raw-c-2/)
+
 ## Tokenizer
 
 <p align="center">
@@ -88,6 +97,16 @@
 [Data Clustering with K-Means++ Using C#](https://visualstudiomagazine.com/articles/2020/05/06/data-clustering-k-means.aspx),
 [James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2020/05/08/data-clustering-with-k-means-using-c/)
 
+## Naive Bayes Classification
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/naive_bayes_classification.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/naive_bayes_classification.cs),
+[Naive Bayes Classification Using C#](https://visualstudiomagazine.com/articles/2022/05/02/naive-bayes-classification-csharp.aspx),
+[James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2022/05/16/naive-bayes-classification-using-csharp-in-visual-studio-magazine/)
+
 ## Numeric Naive Bayes
 
 <p align="center">
@@ -97,3 +116,12 @@
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/numeric_naive_bayes.cs),
 [How to Do Naive Bayes with Numeric Data Using C#](https://visualstudiomagazine.com/articles/2019/11/12/naive-bayes-csharp),
 [James D. McCaffrey Blog](https://visualstudiomagazine.com/articles/2019/11/12/naive-bayes-csharp)
+
+## Probability distributions
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/distribution_distance.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/distribution_distance.cs),
+[Wasserstein Distance Using C# and Python](https://visualstudiomagazine.com/articles/2021/08/16/wasserstein-distance.aspx),
+[James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2021/08/23/comparing-wasserstein-distance-with-kullback-leibler-distance/)
