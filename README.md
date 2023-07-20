@@ -18,6 +18,24 @@
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/evolutionary_optimization.cs),
 [Evolutionary Optimization Using C# James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2023/01/12/evolutionary-optimization-using-c-2/)
 
+## Evolutionary Optimization Hyperparameter Search
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/evolutionary_optimization.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/evolutionary_optimization.cs),
+[Evolutionary Optimization Using C# James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2023/01/12/evolutionary-optimization-using-c-2/)
+
+## Simulated Annealing with Lin-Kernighan Optimization 
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/simulated_annealing_LK">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/simulated_annealing_LK.cs),
+[Simulated Annealing Optimization Using C# or Python](https://visualstudiomagazine.com/articles/2021/12/01/traveling-salesman.aspx)
+
 ## Logistic Regression
 
 <p align="center">
