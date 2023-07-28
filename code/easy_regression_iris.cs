@@ -54,6 +54,7 @@ Console.WriteLine($"Training with Min-Max Normalization (Scaling to [{0}, {1}]):
 float[] trainedWeights2 = RunTraining(normMinMaxTrainingData, normMinMaxTestData, learningRate, epochs, seed);
 
 Console.WriteLine("\nEnd demo");
+
 static float[] RunTraining(float[][] trainingData, float[][] testData, float lr, int epochs, int seed)
 {
     // Initialize the random number generator with the specified seed
