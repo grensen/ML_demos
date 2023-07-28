@@ -93,6 +93,45 @@ static float[] RunTraining(float[][] trainingData, float[][] testData, float lr,
 
     return weights;
 }
+static int Test(float[] data, float[] weights, bool training = false)
+{
+    int inputSize = 4; // Number of input features (sepal length, sepal width, petal length, petal width)
+    int outputSize = 3; // Number of output classes (Iris setosa, Iris versicolor, Iris virginica)
+    int correct = 0;
+
+    // feed forward
+    float[] outputs = new float[outputSize];
+    for (int i = 0; i < inputSize; i++)
+        for (int j = 0; j < outputSize; j++)
+            outputs[j] += data[i] * weights[i * outputSize + j];
+
+    int prediction = ArgMax(outputs);
+    int targetClass = (int)data[inputSize]; // Assuming the class label is the last element in the data array
+
+    if (training) // (backprop) plus update
+        if (prediction != targetClass)
+            for (int i = 0; i < inputSize; i++)
+            {
+                weights[i * outputSize + targetClass] += data[i];
+                weights[i * outputSize + prediction] -= data[i];
+            }
+
+    correct += prediction == targetClass ? 1 : 0;
+
+    return correct;
+}
+static int ArgMax(float[] arr)
+{
+    int prediction = 0;
+    float max = arr[0];
+    for (int i = 1; i < arr.Length; i++)
+        if (arr[i] > max)
+        {
+            max = arr[i];
+            prediction = i;
+        }
+    return prediction;
+}
 static int[] Shuffle(int length, int seed, bool doShuffle = true)
 {
     Random random = new Random(seed);
@@ -210,45 +249,6 @@ static float[][] MinMaxNormalization(float[][] data, float minRange, float maxRa
     for (int i = 0; i < data.Length; i++)
         normalizedData[i][numFeatures] = data[i][numFeatures];
     return normalizedData;
-}
-static int Test(float[] data, float[] weights, bool training = false)
-{
-    int inputSize = 4; // Number of input features (sepal length, sepal width, petal length, petal width)
-    int outputSize = 3; // Number of output classes (Iris setosa, Iris versicolor, Iris virginica)
-    int correct = 0;
-
-    // feed forward
-    float[] outputs = new float[outputSize];
-    for (int i = 0; i < inputSize; i++)
-        for (int j = 0; j < outputSize; j++)
-            outputs[j] += data[i] * weights[i * outputSize + j];
-
-    int prediction = ArgMax(outputs);
-    int targetClass = (int)data[inputSize]; // Assuming the class label is the last element in the data array
-
-    if (training) // (backprop) plus update
-        if (prediction != targetClass)
-            for (int i = 0; i < inputSize; i++)
-            {
-                weights[i * outputSize + targetClass] += data[i];
-                weights[i * outputSize + prediction] -= data[i];
-            }
-
-    correct += prediction == targetClass ? 1 : 0;
-
-    return correct;
-}
-static int ArgMax(float[] arr)
-{
-    int prediction = 0;
-    float max = arr[0];
-    for (int i = 1; i < arr.Length; i++)
-        if (arr[i] > max)
-        {
-            max = arr[i];
-            prediction = i;
-        }
-    return prediction;
 }
 static float[][] LoadIrisTrainingDataFloat()
 {
