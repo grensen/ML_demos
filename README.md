@@ -36,6 +36,15 @@
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/logistic_regression.cs),
 [Logistic Regression using Raw C#](https://jamesmccaffrey.wordpress.com/2023/02/16/logistic-regression-using-raw-c-2/)
 
+## Easy Regression
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/easy_regression_iris.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/easy_regression_iris.cs),
+[Easy Regression on MNIST](https://github.com/grensen/easy_regression)
+
 ## Kernel Ridge Regression
 
 <p align="center">
