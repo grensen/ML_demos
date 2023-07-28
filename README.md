@@ -43,7 +43,8 @@
 </p>
 
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/easy_regression_iris.cs),
-[Easy Regression on MNIST](https://github.com/grensen/easy_regression)
+[Easy Regression on MNIST](https://github.com/grensen/easy_regression),
+[Why I Don’t Use Min-Max or Z-Score Normalization For Neural Networks (James D. McCaffrey Blog)](https://jamesmccaffrey.wordpress.com/2021/08/16/why-i-dont-use-min-max-or-z-score-normalization-for-neural-networks/)
 
 ## Kernel Ridge Regression
 
