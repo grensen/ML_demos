@@ -156,7 +156,6 @@
 [Using Multi-Swarm Training on Your Neural Networks](https://visualstudiomagazine.com/articles/2015/02/01/using-multi-swarm-training.aspx),
 [James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2015/02/16/training-neural-networks-using-multi-swarm-optimization/)
 
-
 ## Probability distributions
 <p align="center">
   <img src="https://github.com/grensen/ML_demos/blob/main/figures/distribution_distance.png">
@@ -165,3 +164,15 @@
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/distribution_distance.cs),
 [Wasserstein Distance Using C# and Python](https://visualstudiomagazine.com/articles/2021/08/16/wasserstein-distance.aspx),
 [James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2021/08/23/comparing-wasserstein-distance-with-kullback-leibler-distance/)
+
+## Matrix QR Decomposition
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/matrix_qr_decomposition.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/matrix_qr_decomposition.cs),
+[Matrix QR Decomposition from Scratch Using C#](https://jamesmccaffrey.wordpress.com/2023/08/10/matrix-qr-decomposition-from-scratch-using-csharp/)
+
+
+
+
