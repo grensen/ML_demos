@@ -9,6 +9,15 @@
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/neural_network_benchmark.cs),
 [Neural Network Benchmark](https://github.com/grensen/neural_network_benchmark)
 
+## Unstructured Neural Network Pruning
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/neural_network_pruning.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/neural_network_pruning.cs),
+[Neural Network with Unstructured Pruning Using C#](https://github.com/grensen/neural_network_pruning/tree/main)
+
 ## Evolutionary Optimization Hyperparameter Search
 
 <p align="center">
