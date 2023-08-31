@@ -33,7 +33,15 @@
   <img src="https://github.com/grensen/ML_demos/blob/main/figures/ultimate_pruning_demo.png">
 </p>
 
-[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/ultimate_pruning_demo.cs),
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/ultimate_pruning_demo.cs)
+
+## Ultimate Network
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/ultimate_network_demo.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/ultimate_network_demo.cs)
 
 ## Evolutionary Optimization Hyperparameter Search
 
