@@ -18,6 +18,23 @@
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/neural_network_pruning.cs),
 [Neural Network with Unstructured Pruning Using C#](https://github.com/grensen/neural_network_pruning/tree/main)
 
+## Neural Network Compression
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/neural_pruning_demo.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/neural_pruning_demo.cs),
+[Neural Network with Unstructured Pruning Using C#](https://github.com/grensen/neural_network_pruning/tree/main)
+
+## Ultimate Network Compression
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/ultimate_pruning_demo.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/ultimate_pruning_demo.cs),
+
 ## Evolutionary Optimization Hyperparameter Search
 
 <p align="center">
