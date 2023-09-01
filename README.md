@@ -90,6 +90,15 @@
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/kernel_ridge_regression.cs),
 [Kernel Ridge Regression Using C# OOP Style](https://jamesmccaffrey.wordpress.com/2023/07/17/kernel-ridge-regression-using-c-oop-style/)
 
+## Gaussian Process Regression
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/gaussian_process_regression_hyper.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/gaussian_process_regression_hyper.cs),
+[Yet Another Look at Gaussian Process Regression Using C#](https://jamesmccaffrey.wordpress.com/2023/08/16/yet-another-look-at-gaussian-process-regression-using-csharp/)
+
 ## Tokenizer
 
 <p align="center">
