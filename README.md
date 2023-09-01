@@ -81,14 +81,13 @@
 [Data Normalization and Encoding for Neural Networks in a Nutshell](https://jamesmccaffrey.wordpress.com/2020/03/04/data-normalization-and-encoding-for-neural-networks-in-a-nutshell/),
 [Why I Don’t Use Min-Max or Z-Score Normalization For Neural Networks](https://jamesmccaffrey.wordpress.com/2021/08/16/why-i-dont-use-min-max-or-z-score-normalization-for-neural-networks/)
 
-## Kernel Ridge Regression
+## Easy Regression on Highly Imbalanced Data
 
 <p align="center">
-  <img src="https://github.com/grensen/ML_demos/blob/main/figures/kernel_ridge_regression.png">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/easy_imbalanced_data.png">
 </p>
 
-[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/kernel_ridge_regression.cs),
-[Kernel Ridge Regression Using C# OOP Style](https://jamesmccaffrey.wordpress.com/2023/07/17/kernel-ridge-regression-using-c-oop-style/)
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/easy_imbalanced_data.cs)
 
 ## Gaussian Process Regression
 
@@ -98,6 +97,15 @@
 
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/gaussian_process_regression_hyper.cs),
 [Yet Another Look at Gaussian Process Regression Using C#](https://jamesmccaffrey.wordpress.com/2023/08/16/yet-another-look-at-gaussian-process-regression-using-csharp/)
+
+## Kernel Ridge Regression
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/kernel_ridge_regression.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/kernel_ridge_regression.cs),
+[Kernel Ridge Regression Using C# OOP Style](https://jamesmccaffrey.wordpress.com/2023/07/17/kernel-ridge-regression-using-c-oop-style/)
 
 ## Tokenizer
 
