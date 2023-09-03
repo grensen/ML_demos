@@ -44,7 +44,7 @@
 ## ReLU-2D Neural Network 
 
 <p align="center">
-  <img src="https://github.com/grensen/ML_demos/blob/main/figures/relu2d">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/relu2d.png">
 </p>
 
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/relu2d.cs)
