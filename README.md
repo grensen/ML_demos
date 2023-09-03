@@ -41,7 +41,13 @@
   <img src="https://github.com/grensen/ML_demos/blob/main/figures/ultimate_network_demo.png">
 </p>
 
-[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/ultimate_network_demo.cs)
+## ReLU-2D Neural Network 
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/relu2d">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/relu2d.cs)
 
 ## Evolutionary Optimization Hyperparameter Search
 
