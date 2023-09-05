@@ -49,6 +49,14 @@
 
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/relu2d.cs)
 
+## Ultimate ReLU-2D Network 
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/ultimate_relu2d.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/ultimate_relu2d.cs)
+
 ## Evolutionary Optimization Hyperparameter Search
 
 <p align="center">
@@ -162,6 +170,15 @@
 
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/expectation_maximization.cs),
 [Expectation Maximization From Scratch Using C#](https://github.com/grensen/ExpectationMaximization)
+
+## Support Vector Machine
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/svm.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/svm.cs),
+[Support Vector Machine From Scratch Using C#](https://jamesmccaffrey.wordpress.com/2021/12/13/support-vector-machine-from-scratch-using-c/)
 
 ## Mixture Model Clustering
 
