@@ -59,6 +59,14 @@
 
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/ultimate_relu2d.cs)
 
+## Ultimate ReLU-2D Network Compression
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/ultimate_relu2d_pruning.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/ultimate_relu2d_pruning.cs)
+
 ## Evolutionary Optimization Hyperparameter Search
 
 <p align="center">
