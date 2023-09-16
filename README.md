@@ -67,6 +67,14 @@
 
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/ultimate_relu2d_pruning.cs)
 
+## ReLU Scale Invariance
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/scale_invariance.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/scale_invariance.cs)
+
 ## Evolutionary Optimization Hyperparameter Search
 
 <p align="center">
