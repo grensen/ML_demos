@@ -1,19 +1,26 @@
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// Open Package-Manager-Console and run this first:
+// NuGet\Install-Package Microsoft.DeepDev.TokenizerLib -Version 1.3.3
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 // https://github.com/stephentoub/Tokenizer
+// https://www.nuget.org/packages/Microsoft.DeepDev.TokenizerLib/
+
 using Microsoft.DeepDev;
 
 var IM_START = "<|im_start|>";
 var IM_END = "<|im_end|>";
 var specialTokens = new Dictionary<string, int> { { IM_START, 100264 }, { IM_END, 100265 }, };
-ITokenizer tokenizer = TokenizerBuilder.CreateByModelName("gpt-4", specialTokens);
+ITokenizer tokenizer = await TokenizerBuilder.CreateByModelNameAsync("gpt-4", specialTokens);
 
 string text = "Hello World";
-// demo 1 
+// demo 1 encode tokens
 StringToTokens(IM_START + text + IM_END);
-// demo 2
+// demo 2 decode tokens
 PrintDecodedTokens(0, 5);
 PrintDecodedTokens(9905, 5);
 PrintDecodedTokens(100261, 5);
-// demo 3
+// demo 3 save all tokens into one file
 CreateOutputTokensFile(@"C:\tokenizer\output.txt", 100266);
 
 void PrintDecodedTokens(int start, int take)
