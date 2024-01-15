@@ -142,7 +142,7 @@
 ## Tokenizer
 
 <p align="center">
-  <img src="https://github.com/grensen/ML_demos/blob/main/figures/tokenizer.png">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/tokenizer_update.png">
 </p>
 
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/tokenizer.cs),
