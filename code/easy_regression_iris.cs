@@ -1,4 +1,6 @@
 // https://github.com/grensen/easy_regression
+using System.Linq;
+using System;
 
 // Initialize hyperparameters
 int seed = 1337;
