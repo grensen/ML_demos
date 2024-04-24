@@ -1,5 +1,13 @@
 # Machine Learning Demos Using C#
 
+## Easy Solutions for CIFAR-10 Overfitting
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/overfitting_cifar10.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/overfitting_cifar10.cs)
+
 ## Neural Network Benchmark
 
 <p align="center">
