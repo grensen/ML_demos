@@ -1,5 +1,22 @@
 # Machine Learning Demos Using C#
 
+## Roulette Wheel Selection (Fitness Proportional Selection)
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/roulette_wheel_selection_demo.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/roulette_wheel_selection_demo.cs)
+
+## Permutation Block
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/perm_block_demo.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/perm_block_demo.cs)
+
+
 ## Easy Solutions for CIFAR-10 Overfitting
 
 <p align="center">
