@@ -71,20 +71,20 @@ class cnn24_cifar10
         RunTraining();
 
         // flip, random filter, shift
-        randomFilter = 0.2f;        
-        flip = true; 
+        randomFilter = 0.2f;
+        flip = true;
         shift = 3;
         Console.WriteLine($"Activate: XFLIP = {flip:F0}, RANDFILTER = {randomFilter:F2}, SHIFT = {shift:F0}");
-        
+
         RunTraining();
 
         Console.WriteLine("End CNN demo");
 
         void NetInfo()
         {
-            #if DEBUG
+#if DEBUG
                 Console.WriteLine("Debug mode is on, switch to Release mode"); return;
-            #endif
+#endif
 
             Console.WriteLine($"Convolution = {string.Join("-", cnn)}");
             Console.WriteLine($"Kernel size = {string.Join("-", filter)}");
@@ -104,7 +104,7 @@ class cnn24_cifar10
             if (L2 != 0) Console.WriteLine($"L2NORM{" ",6}= {L2:F2}{" ",3}"
                 + $"| MLT = {FACTOR:F2}"
                 );
-            if(DROPOUT != 0) Console.WriteLine($"DROPOUT+{" ",4}= {DROPOUT:F2}");
+            if (DROPOUT != 0) Console.WriteLine($"DROPOUT+{" ",4}= {DROPOUT:F2}");
             Console.WriteLine($"SHUFFLE{" ",5}= {shuffle:F0}");
 
         }
@@ -121,7 +121,7 @@ class cnn24_cifar10
             Stopwatch sw = Stopwatch.StartNew();
             int[] indices = Enumerable.Range(0, d.cifarTrainbLabel.Length).ToArray(),
                 done = new int[d.cifarTrainbLabel.Length];
-            
+
             // 5.0
             float[] delta = new float[weights.Length], kDelta = new float[kernel.Length];
             for (int epoch = 0; epoch < EPOCHS; epoch++, LR *= FACTOR, MOMENTUM *= FACTOR, L2 *= FACTOR)
@@ -172,8 +172,8 @@ class cnn24_cifar10
         for (int i = 0, c = 0; i < cnn.Length - 1; i++) // each cnn layer
             for (int l = 0, f = filter[i]; l < cnn[i]; l++) // each input map
                 for (int r = 0; r < cnn[i + 1]; r++) // each output map
-                    for (int col = 0; col < f; col++) // kernel y
-                        for (int row = 0; row < f; row++, c++) // kernel x
+                    for (int row = 0; row < f; row++) // kernel y
+                        for (int col = 0; col < f; col++, c++) // kernel x
                             kernel[c] = //(rnd.NextSingle() * 2 - 1) /  MathF.Sqrt(cnn[i] * cnn[i + 1] * 0.5f);
                                  (rnd.NextSingle() * 2 - 1)
                 * MathF.Sqrt(6.0f / (cnn[i] + cnn[i + 1])) * 0.5f;
@@ -310,27 +310,27 @@ class cnn24_cifar10
             lMap = lDim * lDim, rMap = rDim * rDim, kMap = kd * kd;
 
             if (kd == 3) // unrolled 3x3 kernel
-            {               
+            {
                 for (int l = 0, leftStep = lStep; l < left; l++, leftStep += lMap) // input map
                 {
                     for (int r = 0, rightStep = rStep; r < right; r++, rightStep += rMap) // out map
                     {
                         int kernelStep = ks + (l * right + r) * kMap;
                         var outMap = conv.Slice(rightStep, rMap);
-                        for (int col = 0; col < kd; col++) // kernel filter dim y
+                        for (int row = 0; row < kd; row++) // kernel filter dim y
                         {
-                            var kernelRow = kernel.Slice(kernelStep + kd * col, kd);
-                            float k1 = kernelRow[0], k2 = kernelRow[1], k3 = kernelRow[2];
+                            var kernelcol = kernel.Slice(kernelStep + kd * row, kd);
+                            float k1 = kernelcol[0], k2 = kernelcol[1], k3 = kernelcol[2];
 
                             for (int y = 0; y < rDim; y++) // conv dim y
                             {
-                                var inputRow = conv.Slice(leftStep + (y * st + col) * lDim, lDim);
+                                var inputcol = conv.Slice(leftStep + (y * st + row) * lDim, lDim);
                                 for (int x = 0; x < rDim; x++) // conv dim x
                                 {
-                                    int rowStep = x * st;
-                                    float sum1 = k1 * inputRow[rowStep];
-                                    float sum2 = k2 * inputRow[rowStep + 1];
-                                    float sum3 = k3 * inputRow[rowStep + 2];
+                                    int colStep = x * st;
+                                    float sum1 = k1 * inputcol[colStep];
+                                    float sum2 = k2 * inputcol[colStep + 1];
+                                    float sum3 = k3 * inputcol[colStep + 2];
                                     outMap[x + y * rDim] += sum3 + sum2 + sum1;
                                 }
                             }
@@ -348,17 +348,17 @@ class cnn24_cifar10
                     for (int r = 0, rightStep = rStep; r < right; r++, rightStep += rMap) // out map
                     {
                         var outMap = conv.Slice(rightStep, rDim * rDim);
-                        for (int col = 0; col < kd; col++) // kernel filter dim y
+                        for (int row = 0; row < kd; row++) // kernel filter dim y
                         {
-                            var kernelRow = kernel.Slice(ks + (l * right + r) * kMap + kd * col, kd);
+                            var kernelcol = kernel.Slice(ks + (l * right + r) * kMap + kd * row, kd);
                             for (int y = 0; y < rDim; y++) // conv dim y
                             {
-                                var inputRow = inpMap.Slice((y * st + col) * lDim, lDim);
+                                var inputcol = inpMap.Slice((y * st + row) * lDim, lDim);
                                 for (int x = 0; x < rDim; x++) // conv dim x
                                 {
                                     float sum = 0; // kernel filter dim x
-                                    for (int row = 0, rowStep = x * st; row < kernelRow.Length; row++)
-                                        sum = kernelRow[row] * inputRow[rowStep + row] + sum;
+                                    for (int col = 0, colStep = x * st; col < kernelcol.Length; col++)
+                                        sum = kernelcol[col] * inputcol[colStep + col] + sum;
                                     outMap[x + y * rDim] += sum;
                                 }
                             }
@@ -533,41 +533,41 @@ class cnn24_cifar10
                 {
                     var outMap = conv.Slice(rs, rMap);
                     var graMap = cnnGradient.Slice(rs, rMap);
-                    for (int col = 0; col < kd; col++) // filter dim y cols
+                    for (int row = 0; row < kd; row++) // filter dim y rows
                     {
-                        int kernelID = ks + (l * right + r) * kMap + kd * col;
-                        var kernelRow = kernel.Slice(kernelID, kd);
-                        float k1 = kernelRow[0], k2 = kernelRow[1], k3 = kernelRow[2];
-                        var kernelDeltaRow = kDelta.Slice(kernelID, kd);
+                        int kernelID = ks + (l * right + r) * kMap + kd * row;
+                        var kernelcol = kernel.Slice(kernelID, kd);
+                        float k1 = kernelcol[0], k2 = kernelcol[1], k3 = kernelcol[2];
+                        var kernelDeltacol = kDelta.Slice(kernelID, kd);
                         float kd1 = 0, kd2 = 0, kd3 = 0;
 
                         for (int y = 0; y < rDim; y++) // conv dim y
                         {
-                            int irStep = (y * st + col) * lDim;
-                            var inputRow = inpMap.Slice(irStep, lDim);
-                            var inputGraRow = inpGraMap.Slice(irStep, lDim);
+                            int irStep = (y * st + row) * lDim;
+                            var inputcol = inpMap.Slice(irStep, lDim);
+                            var inputGracol = inpGraMap.Slice(irStep, lDim);
                             int outStep = y * rDim;
                             for (int x = 0; x < rDim; x++) // conv dim x
                                 if (outMap[x + outStep] > 0) // relu derivative
                                 {
-                                    int row = 0;
+                                    int col = 0;
                                     float gra = graMap[x + outStep];
 
-                                    int rowStep = x * st;
+                                    int colStep = x * st;
                                     // Unrolled loop for 3 iterations
-                                    kd1 += inputRow[rowStep] * gra;
-                                    inputGraRow[rowStep] += k1 * gra;
-                                    row++;
-                                    kd2 += inputRow[rowStep + 1] * gra;
-                                    inputGraRow[rowStep + 1] += k2 * gra;
-                                    row++;
-                                    kd3 += inputRow[rowStep + 2] * gra;
-                                    inputGraRow[rowStep + 2] += k3 * gra;
+                                    kd1 += inputcol[colStep] * gra;
+                                    inputGracol[colStep] += k1 * gra;
+                                    col++;
+                                    kd2 += inputcol[colStep + 1] * gra;
+                                    inputGracol[colStep + 1] += k2 * gra;
+                                    col++;
+                                    kd3 += inputcol[colStep + 2] * gra;
+                                    inputGracol[colStep + 2] += k3 * gra;
                                 }
                         }
-                        kernelDeltaRow[0] += kd1;
-                        kernelDeltaRow[1] += kd2;
-                        kernelDeltaRow[2] += kd3;
+                        kernelDeltacol[0] += kd1;
+                        kernelDeltacol[1] += kd2;
+                        kernelDeltacol[2] += kd3;
                     }
 
                 }
@@ -586,33 +586,33 @@ class cnn24_cifar10
                 {
                     var outMap = conv.Slice(rs, rMap);
                     var graMap = cnnGradient.Slice(rs, rMap);
-                    for (int col = 0; col < kd; col++) // filter dim y cols
+                    for (int row = 0; row < kd; row++) // filter dim y rows
                     {
-                        int kernelID = ks + (l * right + r) * kMap + kd * col;
-                        var kernelDeltaRow = kDelta.Slice(kernelID, kd);
+                        int kernelID = ks + (l * right + r) * kMap + kd * row;
+                        var kernelDeltacol = kDelta.Slice(kernelID, kd);
                         float kd1 = 0, kd2 = 0, kd3 = 0;
 
                         for (int y = 0; y < rDim; y++) // conv dim y
                         {
-                            int irStep = (y * st + col) * lDim;
-                            var inputRow = inpMap.Slice(irStep, lDim);
+                            int irStep = (y * st + row) * lDim;
+                            var inputcol = inpMap.Slice(irStep, lDim);
                             int outStep = y * rDim;
                             for (int x = 0; x < rDim; x++) // conv dim x
                                 if (outMap[x + outStep] > 0) // relu derivative
                                 {
                                     float gra = graMap[x + outStep];
 
-                                    int rowStep = x * st;
+                                    int colStep = x * st;
                                     // Unrolled loop for 3 iterations
-                                    kd1 += inputRow[rowStep] * gra;
-                                    kd2 += inputRow[rowStep + 1] * gra;
-                                    kd3 += inputRow[rowStep + 2] * gra;
+                                    kd1 += inputcol[colStep] * gra;
+                                    kd2 += inputcol[colStep + 1] * gra;
+                                    kd3 += inputcol[colStep + 2] * gra;
                                 }
 
                         }
-                        kernelDeltaRow[0] += kd1;
-                        kernelDeltaRow[1] += kd2;
-                        kernelDeltaRow[2] += kd3;
+                        kernelDeltacol[0] += kd1;
+                        kernelDeltacol[1] += kd2;
+                        kernelDeltacol[2] += kd3;
                     }
                 }
             }
@@ -657,7 +657,7 @@ class cnn24_cifar10
         sample.CopyTo(conv.Slice(0, sample.Length));
 
         if (flip)
-            if ((epoch + 1) % 2 == 0) 
+            if ((epoch + 1) % 2 == 0)
                 // yes, no, maybe, maybe 
                 // if ((epoch + 0) % 4 == 0 || (epoch + 2) % 4 == 0 && rng.NextSingle() < 0.5f  || (epoch + 3) % 4 == 0 && rng.NextSingle() > 0.5f)
                 for (int i = 0; i < 3; i++)
@@ -729,7 +729,7 @@ class cnn24_cifar10
         DateTime elapsed = DateTime.Now;
         Random rng = new Random(seed);
 
-        if (shuffle)  rng.Shuffle(indices);
+        if (shuffle) rng.Shuffle(indices);
 
         // get network size
         int cnnLen = CnnNeuronsLen(dim[0], cnn, dim), nnLen = NeuronsLen(net);
@@ -769,7 +769,7 @@ class cnn24_cifar10
 
             UpdateL2Norm(kernel, kernelDelta, lr, 0, l2); // no cnn mom works better?
             UpdateL2Norm(weight, delta, lr, mom, l2);
-            
+
         }
 
         // cnn stuff
@@ -996,5 +996,4 @@ class cnn24_cifar10
         }
     }
 } //
-
 
