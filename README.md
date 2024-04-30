@@ -171,7 +171,8 @@
 </p>
 
 [Demo Code](https://github.com/grensen/ML_demos/blob/main/code/tokenizer.cs),
-[Byte Pair Encoding (BPE)](https://github.com/stephentoub/Tokenizer)
+[Byte Pair Encoding (BPE)](https://github.com/stephentoub/Tokenizer),
+[James D. McCaffrey Blog](https://jamesmccaffrey.wordpress.com/2024/01/15/using-news-articles-to-train-large-language-models/)
 
 ## k-NN Classification
 
