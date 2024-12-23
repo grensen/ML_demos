@@ -1,5 +1,13 @@
 # Machine Learning Demos Using C#
 
+## UltimateNet Regression
+
+<p align="center">
+  <img src="https://github.com/grensen/ML_demos/blob/main/figures/ultimateNet_regression_synth.png">
+</p>
+
+[Demo Code](https://github.com/grensen/ML_demos/blob/main/code/ultimateNet_regression_synth.cs)
+
 ## Roulette Wheel Selection (Fitness Proportional Selection)
 
 <p align="center">
