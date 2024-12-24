@@ -1,9 +1,7 @@
 // .NET 9
 using System.Collections.ObjectModel;
 
-namespace PeopleLogisticRegressionBatch;
-
-class Programm
+class Program
 {
     static void Main(string[] args)
     {
