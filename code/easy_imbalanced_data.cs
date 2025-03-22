@@ -33,33 +33,39 @@ Console.WriteLine($"\nEnd demo");
 
 static (float[][] train, float[][] test, string[] featureNames, string[] labelNames) AutoDataInitCreditCard(string yourPath)
 {
-    // directory path to save file
+    // Directory path to save file
     string localFilePath = Path.Combine(yourPath, "creditcardData.txt");
 
-    // check if directory path exists and create if not
+    // Check if directory path exists and create if not
     if (!Directory.Exists(yourPath))
         Directory.CreateDirectory(yourPath);
 
-    // check if data file exists else download
+    // Check if data file exists, else download
     if (!File.Exists(localFilePath))
     {
-        string dataUrl = "https://datahub.io/machine-learning/creditcard/r/creditcard.csv";
-        Console.WriteLine("Data not found! Download from datahub.io"); // Console.WriteLine(dataUrl);
-
+        // string dataUrl = "https://datahub.io/machine-learning/creditcard/r/creditcard.csv";
+        string dataUrl = "https://synapseaisolutionsa.blob.core.windows.net/public/Credit_Card_Fraud_Detection/creditcard.csv";
+        Console.WriteLine($"Data not found! Download from:\n\t{dataUrl}");
         byte[] data = new HttpClient().GetByteArrayAsync(dataUrl).Result;
-        File.WriteAllBytes(localFilePath, data);      
-        //using WebClient client = new();
-        //client.DownloadFile(dataUrl, localFilePath);
+        File.WriteAllBytes(localFilePath, data);
     }
 
     string[] trainDataLines = File.ReadAllLines(localFilePath).ToArray();
 
+    // check first lines
+    // Console.WriteLine(trainDataLines[0]);
+    // Console.WriteLine(trainDataLines[1]);
+
     Console.WriteLine("Dataset: Credit Card Fraud Detection (" + yourPath + ")");
-    // load original data into float array
+
+    // Load original data into float array
     float[][] trainData = new float[trainDataLines.Length - 1][];
     for (int i = 1; i < trainDataLines.Length; i++)
     {
-        string[] values = trainDataLines[i].Split(',');
+        string[] values = trainDataLines[i]
+            .Split(',')
+            .Select(x => x.Replace("\"", ""))
+            .ToArray();
 
         float[] rowData = new float[values.Length];
         for (int j = 0; j < values.Length; j++)
@@ -67,23 +73,41 @@ static (float[][] train, float[][] test, string[] featureNames, string[] labelNa
                 rowData[j] = labelValue;
             else if (float.TryParse(values[j], out float parsedValue))
                 rowData[j] = parsedValue;
-
         trainData[i - 1] = rowData;
     }
 
-    Console.WriteLine($"Remove features Time and Amount from {trainData.Length} samples");
-    // remove first feature time and last feature amount while keep label at last
+    Console.WriteLine($"Remove features Time, Amount and others from {trainData.Length} samples");
+
+    // Define feature indices to keep (excluding Time and Amount)
+    int[] ids = [
+        // 0, remove time
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+        11, 12, 13, 14, 15, 16, 17, 18, 19,
+        20, 21, 22, 23, 24, 25, 26, 27,
+        28, 29
+    // 30, remove amount
+    ];
+
+    // Remove first feature (Time) and second-to-last feature (Amount), keep label at last
     float[][] trainDataMod = new float[trainData.Length][];
     for (int i = 0; i < trainData.Length; i++)
     {
-        trainDataMod[i] = new float[trainData[0].Length - 2];
-        for (int j = 1; j < trainData[0].Length - 2; j++)
-            trainDataMod[i][j - 1] = trainData[i][j];
-
-        trainDataMod[i][trainDataMod[0].Length - 1] = trainData[i][trainData[0].Length - 1];
+        trainDataMod[i] = new float[ids.Length + 1]; // +1 for label
+        for (int j = 0; j < ids.Length; j++)
+        {
+            int id = ids[j];
+            trainDataMod[i][j] = trainData[i][id];
+        }
+        trainDataMod[i][^1] = trainData[i][trainData[0].Length - 1]; // Copy label
     }
+    Console.WriteLine($"Reduce {trainDataMod[0].Length - 1} Features with FeatureSelector");
 
-    // splitt first half into train, and second half into test, then return
+    // Apply feature selection
+
+    trainDataMod = true ? new FeatureSelector().SelectBestFeatures(trainDataMod)
+        : new HybridFeatureSelector().SelectBestFeatures(trainDataMod, miThreshold: 0.0001f, minFeatures: 25);
+
+    // Split dataset into train and test
     Console.WriteLine($"Split dataset from 2 days with {trainDataMod[0].Length - 1} features and label");
     int splitIndex = trainDataMod.Length / 2;
     float[][] train = trainDataMod.Take(splitIndex).ToArray();
@@ -92,19 +116,25 @@ static (float[][] train, float[][] test, string[] featureNames, string[] labelNa
     Console.WriteLine($"Training day 1 = {train.Length} samples");
     Console.WriteLine($"Test day 2     = {test.Length} samples");
 
-    var featureNames = trainDataLines[0].Split(',').Skip(1).Take(trainDataMod[0].Length - 1).ToArray();
-    
+    // Extract feature names
+    string[] featureNames = trainDataLines[0]
+        .Split(',')
+        .Skip(1)
+        .Take(trainDataMod[0].Length - 1)
+        .Select(f => f.Trim('"')) // format fix from "..." to '...' 
+        .ToArray();
+
     string[] labelNames = { "Transaction", "Fraud" };
 
     return (train, test, featureNames, labelNames);
 }
+
 static void MinMaxNormWithScaling(float[][] train, float[][] test, float min, float max, float factor)
 {
     Console.WriteLine($"\nMin-Max ({min},{max}) normalization with scaling factor {factor}");
 
-    // Calculate the minimum and maximum values for each feature in the training set
+    // Calculate min and max values for each feature in training set
     float[] minValues = new float[train[0].Length], maxValues = new float[train[0].Length];
-    // find training data min max
     for (int i = 0; i < train[0].Length - 1; i++)
     {
         minValues[i] = maxValues[i] = train[0][i];
@@ -115,7 +145,7 @@ static void MinMaxNormWithScaling(float[][] train, float[][] test, float min, fl
         }
     }
 
-    // scale factor for training day 1 data
+    // Apply scaling factor
     for (int i = 0; i < train[0].Length - 1; i++)
     {
         minValues[i] *= factor;
@@ -133,6 +163,7 @@ static void MinMaxNormWithScaling(float[][] train, float[][] test, float min, fl
                 data[i][j] = ((data[i][j] - minVal[j]) / (maxVal[j] - minVal[j])) * (max - min) + min;
     }
 }
+
 static float[] RunEasyRegressionTraining(float[][] train, string[] labels, float lr, int epochs)
 {
     int inputSize = train[0].Length - 1, outputSize = labels.Length;
