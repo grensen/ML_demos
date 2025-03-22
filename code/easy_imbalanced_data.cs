@@ -84,7 +84,8 @@ static (float[][] train, float[][] test, string[] featureNames, string[] labelNa
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
         11, 12, 13, 14, 15, 16, 17, 18, 19,
         20, 21, 22, 23, 24, 25, 26, 27,
-        28, 29
+        28
+        //, 29
     // 30, remove amount
     ];
 
@@ -101,11 +102,6 @@ static (float[][] train, float[][] test, string[] featureNames, string[] labelNa
         trainDataMod[i][^1] = trainData[i][trainData[0].Length - 1]; // Copy label
     }
     Console.WriteLine($"Reduce {trainDataMod[0].Length - 1} Features with FeatureSelector");
-
-    // Apply feature selection
-
-    trainDataMod = true ? new FeatureSelector().SelectBestFeatures(trainDataMod)
-        : new HybridFeatureSelector().SelectBestFeatures(trainDataMod, miThreshold: 0.0001f, minFeatures: 25);
 
     // Split dataset into train and test
     Console.WriteLine($"Split dataset from 2 days with {trainDataMod[0].Length - 1} features and label");
@@ -129,40 +125,6 @@ static (float[][] train, float[][] test, string[] featureNames, string[] labelNa
     return (train, test, featureNames, labelNames);
 }
 
-static void MinMaxNormWithScaling(float[][] train, float[][] test, float min, float max, float factor)
-{
-    Console.WriteLine($"\nMin-Max ({min},{max}) normalization with scaling factor {factor}");
-
-    // Calculate min and max values for each feature in training set
-    float[] minValues = new float[train[0].Length], maxValues = new float[train[0].Length];
-    for (int i = 0; i < train[0].Length - 1; i++)
-    {
-        minValues[i] = maxValues[i] = train[0][i];
-        for (int j = 1; j < train.Length; j++)
-        {
-            if (train[j][i] < minValues[i]) minValues[i] = train[j][i];
-            if (train[j][i] > maxValues[i]) maxValues[i] = train[j][i];
-        }
-    }
-
-    // Apply scaling factor
-    for (int i = 0; i < train[0].Length - 1; i++)
-    {
-        minValues[i] *= factor;
-        maxValues[i] *= factor;
-    }
-
-    Console.WriteLine($"Normalize training and test data with boundaries based on training day 1");
-    NormData(train, minValues, maxValues, min, max);
-    NormData(test, minValues, maxValues, min, max);
-
-    static void NormData(float[][] data, float[] minVal, float[] maxVal, float min, float max)
-    {
-        for (int i = 0; i < data.Length; i++)
-            for (int j = 0; j < data[i].Length - 1; j++)
-                data[i][j] = ((data[i][j] - minVal[j]) / (maxVal[j] - minVal[j])) * (max - min) + min;
-    }
-}
 
 static float[] RunEasyRegressionTraining(float[][] train, string[] labels, float lr, int epochs)
 {
